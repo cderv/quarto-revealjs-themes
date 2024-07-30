@@ -35,7 +35,7 @@ This websites shows the demo presentation from <https://quarto.org/docs/presenta
 
 Navigate the menu or scroll below
 
-## Revealjs Themed presentation
+## Revealjs Themed presentations
 
 ```{r}
 #| echo: false
