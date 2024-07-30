@@ -1,0 +1,12 @@
+project:
+  type: default
+  output-dir: {{output_dir}}
+
+format:
+  revealjs:
+    theme: {{theme}}
+    controls: true
+    menu: false
+    progress: false
+    width: 1050
+    height: 300

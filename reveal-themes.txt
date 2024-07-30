@@ -1,0 +1,11 @@
+beige
+blood
+dark
+default
+league
+moon
+night
+serif
+simple
+sky
+solarized

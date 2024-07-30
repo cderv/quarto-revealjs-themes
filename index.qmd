@@ -1,0 +1,39 @@
+---
+title: All Revealjs themes in one place !
+---
+
+```{css}
+.slides {
+    border: 3px solid #dee2e6;
+    width: 100%;
+}
+```
+
+This websites shows the demo presentation from https://quarto.org with a version for all available themes.
+
+## Aims
+
+- Discover what a theme looks like. 
+
+- Easier control when we update themes. 
+
+Navigate the menu or scroll below
+
+## Revealjs Themed presentation
+
+```{r}
+#| echo: false
+#| output: asis
+files <- fs::dir_ls("revealjs-themed/", recurse = TRUE, glob = "*/index.html")
+theme <- fs::dir_ls("revealjs-themed/") |> gsub(pattern = "revealjs-themed/revealjs-", replacement = "", fixed = TRUE)
+glue::glue("
+### Theme {{glue::single_quote(theme)}}
+
+::: {.slide-container}
+`<iframe class='slides' src={{glue::double_quote(files)}} height=300px></iframe>`{=html}
+:::
+
+`<p><a href={{glue::double_quote(files)}} target='_blank'>View {{fs::path_file(fs::path_dir(files))}} in full screen</a></p>`{=html}
+
+", .open = "{{", .close = "}}")
+```

@@ -1,0 +1,41 @@
+project:
+  type: website
+  resources:
+  - revealjs-themed/
+  render:
+  - index.qmd
+website:
+  title: Themed Revealjs
+  search: false
+  navbar:
+    background: primary
+    right:
+    - href: index.qmd
+      text: Home
+    - text: Revealjs Themed Presentation
+      menu:
+      - href: revealjs-themed/revealjs-beige/index.html
+        text: Using theme 'beige'.
+      - href: revealjs-themed/revealjs-blood/index.html
+        text: Using theme 'blood'.
+      - href: revealjs-themed/revealjs-dark/index.html
+        text: Using theme 'dark'.
+      - href: revealjs-themed/revealjs-default/index.html
+        text: Using theme 'default'.
+      - href: revealjs-themed/revealjs-league/index.html
+        text: Using theme 'league'.
+      - href: revealjs-themed/revealjs-moon/index.html
+        text: Using theme 'moon'.
+      - href: revealjs-themed/revealjs-night/index.html
+        text: Using theme 'night'.
+      - href: revealjs-themed/revealjs-serif/index.html
+        text: Using theme 'serif'.
+      - href: revealjs-themed/revealjs-simple/index.html
+        text: Using theme 'simple'.
+      - href: revealjs-themed/revealjs-sky/index.html
+        text: Using theme 'sky'.
+      - href: revealjs-themed/revealjs-solarized/index.html
+        text: Using theme 'solarized'.
+format:
+  html:
+    theme: litera
