@@ -16,26 +16,48 @@ website:
       menu:
       - href: revealjs-themed/revealjs-beige/index.html
         text: Using theme 'beige'.
+        target: _blank
+        icon: display
       - href: revealjs-themed/revealjs-blood/index.html
         text: Using theme 'blood'.
+        target: _blank
+        icon: display
       - href: revealjs-themed/revealjs-dark/index.html
         text: Using theme 'dark'.
+        target: _blank
+        icon: display
       - href: revealjs-themed/revealjs-default/index.html
         text: Using theme 'default'.
+        target: _blank
+        icon: display
       - href: revealjs-themed/revealjs-league/index.html
         text: Using theme 'league'.
+        target: _blank
+        icon: display
       - href: revealjs-themed/revealjs-moon/index.html
         text: Using theme 'moon'.
+        target: _blank
+        icon: display
       - href: revealjs-themed/revealjs-night/index.html
         text: Using theme 'night'.
+        target: _blank
+        icon: display
       - href: revealjs-themed/revealjs-serif/index.html
         text: Using theme 'serif'.
+        target: _blank
+        icon: display
       - href: revealjs-themed/revealjs-simple/index.html
         text: Using theme 'simple'.
+        target: _blank
+        icon: display
       - href: revealjs-themed/revealjs-sky/index.html
         text: Using theme 'sky'.
+        target: _blank
+        icon: display
       - href: revealjs-themed/revealjs-solarized/index.html
         text: Using theme 'solarized'.
+        target: _blank
+        icon: display
 format:
   html:
     theme: litera

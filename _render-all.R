@@ -43,7 +43,9 @@ yaml$project$render <- list(yaml$project$render)
 menu_index <- purrr::imap(reveal_themed, \(x, y) {
   list(
     href = fs::path(x, "index.html"),
-    text = glue::glue("Using theme {glue::single_quote(y)}.")
+    text = glue::glue("Using theme {glue::single_quote(y)}."),
+    target = "_blank",
+    icon = "display"
   )
 }) 
 

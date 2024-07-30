@@ -1,17 +1,33 @@
 ---
 title: All Revealjs themes in one place !
+format:
+  html:
+    toc: true
 ---
 
 ```{css}
-.slides {
-    border: 3px solid #dee2e6;
-    width: 100%;
+/*| echo: false */ 
+.slide-deck {
+  border: 3px solid #dee2e6;
+  width: 100%;
+  height: 475px;
+}
+
+@media only screen and (max-width: 600px) {
+ .slide-deck {
+    height: 400px;
+  }
+}
+
+.theme-example i.bi {
+    margin-left: .1rem;
+    margin-right: .25em;
 }
 ```
 
-This websites shows the demo presentation from https://quarto.org with a version for all available themes.
+This websites shows the demo presentation from <https://quarto.org/docs/presentations/revealjs/> with an example for each available theme.
 
-## Aims
+## Why this website ?
 
 - Discover what a theme looks like. 
 
@@ -27,13 +43,13 @@ Navigate the menu or scroll below
 files <- fs::dir_ls("revealjs-themed/", recurse = TRUE, glob = "*/index.html")
 theme <- fs::dir_ls("revealjs-themed/") |> gsub(pattern = "revealjs-themed/revealjs-", replacement = "", fixed = TRUE)
 glue::glue("
-### Theme {{glue::single_quote(theme)}}
+### Theme {{glue::single_quote(theme)}} {.theme-example}
 
 ::: {.slide-container}
-`<iframe class='slides' src={{glue::double_quote(files)}} height=300px></iframe>`{=html}
+`<iframe class='slide-deck' src={{glue::double_quote(files)}} height=300px></iframe>`{=html}
 :::
 
-`<p><a href={{glue::double_quote(files)}} target='_blank'>View {{fs::path_file(fs::path_dir(files))}} in full screen</a></p>`{=html}
+`<p><i class='bi bi-display' role='img'></i><a href={{glue::double_quote(files)}} target='_blank'>View {{fs::path_file(fs::path_dir(files))}} in full screen</a></p>`{=html}
 
 ", .open = "{{", .close = "}}")
 ```
