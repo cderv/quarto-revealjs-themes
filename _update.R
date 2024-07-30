@@ -1,6 +1,9 @@
-
+# Paths variables 
+quarto_web_demo_folder <- "_revealjs-demo-template/quarto-web-demo"
+demo_path <- 'docs/presentations/revealjs/demo'
 
 # Update Demo files from quarto web -------------------------------------------------------
+# Only to do when we want to check for example update
 
 tempdir <- tempfile("demo-download")
 fs::dir_create(tempdir)
@@ -9,12 +12,11 @@ zipfile <- fs::path(tempdir, "quarto-web.zip")
 xfun::download_file(quarto_web, output = fs::path(tempdir, "quarto-web.zip"), mode = "wb")
 files <- zip::zip_list(zipfile) |> dplyr::as_tibble()
 main_folder <- files$filename[1]
-demo_path <- 'docs/presentations/revealjs/demo'
 demo_path_unzipped <- fs::path(main_folder, demo_path)
 demo_files <- files |> dplyr::filter(startsWith(filename, demo_path_unzipped)) |> dplyr::pull(filename)
 zip::unzip(zipfile, files = demo_files, exdir = tempdir)
 
-quarto_web_demo_folder <- "_revealjs-demo-template/quarto-web-demo"
+
 fs::dir_delete(quarto_web_demo_folder)
 fs::dir_copy(fs::path(tempdir, demo_path_unzipped), quarto_web_demo_folder, overwrite = TRUE)
 # remove pdf file
@@ -38,8 +40,7 @@ renv::lockfile_write(lockfile, file = NULL, project = quarto_web_demo_folder)
 deps <- renv::dependencies(quarto_web_demo_folder)
 renv::install(unique(deps$Package))
 
-# Create project template ------------------------------------------------
-
+# Create project template and render for each theme ------------------------------------------------
 
 revealjs_themes <- xfun::read_utf8("reveal-themes.txt")
 
