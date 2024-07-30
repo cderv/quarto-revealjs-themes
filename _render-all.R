@@ -61,6 +61,11 @@ quarto:::write_yaml(yaml, "_quarto.yml")
 
 # Render main website ----------------------------------------------------
 
+yaml::write_yaml(
+  list(quarto_version = as.character(quarto::quarto_version())),
+  file = "_variables.yml"
+)
+
 withr::with_envvar(
   list(QUARTO_R = fs::path(R.home(), "bin")), 
   quarto::quarto_render(as_job = FALSE)
