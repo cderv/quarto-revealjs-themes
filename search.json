@@ -4,20 +4,20 @@
     "href": "index.html",
     "title": "All Revealjs themes in one place !",
     "section": "",
-    "text": ".slides {\n    border: 3px solid #dee2e6;\n    width: 100%;\n}\nThis websites shows the demo presentation from https://quarto.org with a version for all available themes."
+    "text": "This websites shows the demo presentation from https://quarto.org/docs/presentations/revealjs/ with an example for each available theme."
   },
   {
-    "objectID": "index.html#aims",
-    "href": "index.html#aims",
+    "objectID": "index.html#why-this-website",
+    "href": "index.html#why-this-website",
     "title": "All Revealjs themes in one place !",
-    "section": "Aims",
-    "text": "Aims\n\nDiscover what a theme looks like.\nEasier control when we update themes.\n\nNavigate the menu or scroll below"
+    "section": "Why this website ?",
+    "text": "Why this website ?\n\nDiscover what a theme looks like.\nEasier control when we update themes.\n\nNavigate the menu or scroll below"
   },
   {
-    "objectID": "index.html#revealjs-themed-presentation",
-    "href": "index.html#revealjs-themed-presentation",
+    "objectID": "index.html#revealjs-themed-presentations",
+    "href": "index.html#revealjs-themed-presentations",
     "title": "All Revealjs themes in one place !",
-    "section": "Revealjs Themed presentation",
-    "text": "Revealjs Themed presentation\n\nTheme ‘beige’\n\n\n\nView revealjs-beige in full screen\n\n\nTheme ‘blood’\n\n\n\nView revealjs-blood in full screen\n\n\nTheme ‘dark’\n\n\n\nView revealjs-dark in full screen\n\n\nTheme ‘default’\n\n\n\nView revealjs-default in full screen\n\n\nTheme ‘league’\n\n\n\nView revealjs-league in full screen\n\n\nTheme ‘moon’\n\n\n\nView revealjs-moon in full screen\n\n\nTheme ‘night’\n\n\n\nView revealjs-night in full screen\n\n\nTheme ‘serif’\n\n\n\nView revealjs-serif in full screen\n\n\nTheme ‘simple’\n\n\n\nView revealjs-simple in full screen\n\n\nTheme ‘sky’\n\n\n\nView revealjs-sky in full screen\n\n\nTheme ‘solarized’\n\n\n\nView revealjs-solarized in full screen"
+    "section": "Revealjs Themed presentations",
+    "text": "Revealjs Themed presentations\n\nTheme ‘beige’\n\n\n\nView revealjs-beige in full screen\n\n\nTheme ‘blood’\n\n\n\nView revealjs-blood in full screen\n\n\nTheme ‘dark’\n\n\n\nView revealjs-dark in full screen\n\n\nTheme ‘default’\n\n\n\nView revealjs-default in full screen\n\n\nTheme ‘league’\n\n\n\nView revealjs-league in full screen\n\n\nTheme ‘moon’\n\n\n\nView revealjs-moon in full screen\n\n\nTheme ‘night’\n\n\n\nView revealjs-night in full screen\n\n\nTheme ‘serif’\n\n\n\nView revealjs-serif in full screen\n\n\nTheme ‘simple’\n\n\n\nView revealjs-simple in full screen\n\n\nTheme ‘sky’\n\n\n\nView revealjs-sky in full screen\n\n\nTheme ‘solarized’\n\n\n\nView revealjs-solarized in full screen"
   }
 ]
