@@ -7,10 +7,9 @@ quarto_web_demo_folder <- "_revealjs-demo-template/quarto-web-demo"
 
 revealjs_themes <- xfun::read_utf8("reveal-themes.txt")
 
-if (fs::dir_exists("revealjs-themed")) fs::dir_delete("revealjs-themed")
 
 # render demo template in a temp directory
-render_reveal_theme <- function(theme) {
+render_reveal_theme <- function(theme, output_path) {
   render_template <- function(from, to, data) {
     from <- xfun::read_utf8(from)
     content <- whisker::whisker.render(from, data = data)
@@ -26,14 +25,45 @@ render_reveal_theme <- function(theme) {
     list(QUARTO_R = fs::path(R.home(), "bin")), 
     withr::with_dir(temp_demo, quarto::quarto_render(as_job = FALSE))
   )
-  fs::dir_copy(fs::path(temp_demo, output_dir), fs::path("revealjs-themed", output_dir), overwrite = TRUE)
+  fs::dir_copy(fs::path(temp_demo, output_dir), fs::path(output_path, output_dir), overwrite = TRUE)
 }
 
 # render for each theme
-reveal_themed <- purrr::map_chr(revealjs_themes, render_reveal_theme)
+
+# Rendering first batch with one version
+output_path <- "revealjs-themed"
+if (fs::dir_exists(output_path)) fs::dir_delete(output_path)
+# TODO: make this generic
+Sys.setenv(QUARTO_PATH = fs::path(system("scoop prefix quarto-prerelease", intern = TRUE), "bin", "quarto.exe"))
+stopifnot(quarto::quarto_version() > "1.6")
+quarto_version_main <- as.character(quarto::quarto_version())
+cli::cli_inform("Rendering with {quarto_version_main}")
+reveal_themed <- purrr::map_chr(revealjs_themes, render_reveal_theme, output_path = output_path)
+reveal_themed <- reveal_themed |> purrr::set_names(nm = revealjs_themes)
+
+# Rendering second batch with second version
+
+get_dev_commit <- function() {
+  res <- quarto:::quarto_run(c("check", "install"))
+  regmatches(res$stderr, regexec("\\s+commit: (.*?)\n", res$stderr))[[1]][[2]]
+}
+
+withr::with_envvar(
+  # TODO: make this generic
+  list(QUARTO_PATH = fs::path(shell(shell = "pwsh", cmd = "$(gcm quarto).Source", intern = TRUE))), 
+  {
+    stopifnot(quarto::quarto_version() == "99.9.9")
+    quarto_version_other <- as.character(quarto::quarto_version())
+    cli::cli_inform("Rendering with {quarto_version_other}")
+    output_path_2 <- glue::glue("{output_path}-2")
+    if (fs::dir_exists(output_path_2)) fs::dir_delete(output_path_2)
+    reveal_themed_2 <- purrr::map_chr(revealjs_themes, render_reveal_theme, output_path = output_path_2)
+    reveal_themed_2 <- reveal_themed_2 |> purrr::set_names(nm = revealjs_themes)
+  }
+)
 
 # Update main _quarto.yml for all generated Quarto Themed Presentations
-reveal_themed <- reveal_themed |> purrr::set_names(nm = revealjs_themes)
+
 yaml <- yaml::read_yaml("_quarto.yml")
 
 # keep as list those field (otherwise yaml package write them as single value)
@@ -47,14 +77,28 @@ menu_index <- purrr::imap(reveal_themed, \(x, y) {
     target = "_blank",
     icon = "display"
   )
-}) 
+})
+
+menu_index_2 <- purrr::imap(reveal_themed_2, \(x, y) {
+  list(
+    href = fs::path(x, "index.html"),
+    text = glue::glue("Using theme {glue::single_quote(y)}."),
+    target = "_blank",
+    icon = "display"
+  )
+})
 
 yaml$website$navbar$right <- list(
   list(href = "index.qmd", text = "Home"), 
   list(
-    text = "Revealjs Themed Presentation", 
+    text = glue::glue("Using quarto {quarto_version_main}"), 
     menu = unname(menu_index)
-))
+  ),
+  list(
+    text = glue::glue("Using quarto {quarto_version_other}"), 
+    menu = unname(menu_index_2)
+  )
+)
 
 quarto:::write_yaml(yaml, "_quarto.yml")
 
@@ -62,12 +106,18 @@ quarto:::write_yaml(yaml, "_quarto.yml")
 # Render main website ----------------------------------------------------
 
 yaml::write_yaml(
-  list(quarto_version = as.character(quarto::quarto_version())),
+  list(quarto_version_main = quarto_version_main, quarto_version_other = quarto_version_other),
   file = "_variables.yml"
 )
 
 withr::with_envvar(
-  list(QUARTO_R = fs::path(R.home(), "bin")), 
-  quarto::quarto_render(as_job = FALSE)
+  list(
+    QUARTO_R = fs::path(R.home(), "bin"),
+    QUARTO_PATH = fs::path(system("scoop prefix quarto-prerelease", intern = TRUE), "bin", "quarto.exe")
+  ), {
+    stopifnot(quarto::quarto_version() > "1.6")
+    cli::cli_inform("Rendering all website with {quarto::quarto_version()}")
+    quarto::quarto_render(as_job = FALSE)
+  }
 )
 

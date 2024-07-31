@@ -39,7 +39,7 @@ Navigate the menu or scroll below
 
 ## Quarto version
 
-This page and all presentations where rendered using Quarto version {{< var quarto_version >}}.
+This page was rendered using Quarto version {{< var quarto_version_main >}}, like one of each themed presentations. Other presentations where rendered using {{< var quarto_version_other >}}
 :::
 
 ## Revealjs Themed presentations
@@ -47,16 +47,31 @@ This page and all presentations where rendered using Quarto version {{< var quar
 ```{r}
 #| echo: false
 #| output: asis
-files <- fs::dir_ls("revealjs-themed/", recurse = TRUE, glob = "*/index.html")
-theme <- fs::dir_ls("revealjs-themed/") |> gsub(pattern = "revealjs-themed/revealjs-", replacement = "", fixed = TRUE)
+main_output_path <- "revealjs-themed"
+files <- fs::dir_ls(main_output_path, recurse = TRUE, glob = "*/index.html")
+theme <- fs::dir_ls(main_output_path) |> gsub(pattern = "revealjs-themed/revealjs-", replacement = "", fixed = TRUE)
+files2 <- fs::path(glue::glue("{main_output_path}-2"), glue::glue("revealjs-{theme}"), "index.html")
+stopifnot(
+  fs::dir_ls(glue::glue("{main_output_path}-2"), recurse = TRUE, glob = "*/index.html") == files2
+)
 glue::glue("
-### Theme {{glue::single_quote(theme)}} {.theme-example}
+### Theme %%glue::single_quote(theme)%% {.theme-example}
+
+#### Using Quarto {{< var quarto_version_main >}}
 
 ::: {.slide-container}
-`<iframe class='slide-deck' src={{glue::double_quote(files)}} height=300px></iframe>`{=html}
+`<iframe class='slide-deck' src=%%glue::double_quote(files)%% height=300px></iframe>`{=html}
 :::
 
-`<p><i class='bi bi-display' role='img'></i><a href={{glue::double_quote(files)}} target='_blank'>View {{fs::path_file(fs::path_dir(files))}} in full screen</a></p>`{=html}
+`<p><i class='bi bi-display' role='img'></i><a href=%%glue::double_quote(files)%% target='_blank'>View %%fs::path_file(fs::path_dir(files))%% in full screen</a></p>`{=html}
 
-", .open = "{{", .close = "}}")
+#### Using Quarto {{< var quarto_version_other >}}
+
+::: {.slide-container}
+`<iframe class='slide-deck' src=%%glue::double_quote(files2)%% height=300px></iframe>`{=html}
+:::
+
+`<p><i class='bi bi-display' role='img'></i><a href=%%glue::double_quote(files2)%% target='_blank'>View %%fs::path_file(fs::path_dir(files2))%% in full screen</a></p>`{=html}
+
+", .open = "%%", .close = "%%")
 ```
