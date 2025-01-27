@@ -5,23 +5,32 @@ demo_path <- 'docs/presentations/revealjs/demo'
 # Update Demo files from quarto web -------------------------------------------------------
 # Only to do when we want to check for example update
 
-tempdir <- tempfile("demo-download")
-fs::dir_create(tempdir)
-quarto_web <- "https://github.com/quarto-dev/quarto-web/archive/refs/heads/main.zip"
-zipfile <- fs::path(tempdir, "quarto-web.zip")
-xfun::download_file(quarto_web, output = fs::path(tempdir, "quarto-web.zip"), mode = "wb")
-files <- zip::zip_list(zipfile) |> dplyr::as_tibble()
-main_folder <- files$filename[1]
-demo_path_unzipped <- fs::path(main_folder, demo_path)
-demo_files <- files |> dplyr::filter(startsWith(filename, demo_path_unzipped)) |> dplyr::pull(filename)
-zip::unzip(zipfile, files = demo_files, exdir = tempdir)
+update_demo_from_url <- function(url, demo_path, output_folder, tempdir = tempfile("demo-download")) {
+  fs::dir_create(tempdir)
+  if (!fs::dir_exists(output_folder)) fs::dir_create(output_folder)
+  zipfile <- fs::path(tempdir, "download.zip")
+  xfun::download_file(url, output = zipfile, mode = "wb")
+  files <- zip::zip_list(zipfile) |> dplyr::as_tibble()
+  main_folder <- files$filename[1]
+  demo_path_unzipped <- fs::path(main_folder, demo_path)
+  demo_files <- files |> 
+    dplyr::filter(startsWith(filename, demo_path_unzipped)) |> 
+    dplyr::pull(filename)
+  zip::unzip(zipfile, files = demo_files, exdir = tempdir)
+  
+  fs::dir_delete(output_folder)
+  fs::dir_copy(fs::path(tempdir, demo_path_unzipped), output_folder, overwrite = TRUE)
+  fs::dir_delete(tempdir)
+}
 
+update_demo_from_url(
+  url = "https://github.com/quarto-dev/quarto-web/archive/refs/heads/main.zip",
+  demo_path = demo_path,
+  output_folder = quarto_web_demo_folder
+)
 
-fs::dir_delete(quarto_web_demo_folder)
-fs::dir_copy(fs::path(tempdir, demo_path_unzipped), quarto_web_demo_folder, overwrite = TRUE)
 # remove pdf file
 fs::file_delete(fs::path(quarto_web_demo_folder, "demo.pdf"))
-fs::dir_delete(tempdir)
 
 # Set metadata
 if (any(grepl("{{< meta prerelease-subdomain >}}", xfun::read_utf8(fs::path(quarto_web_demo_folder, "index.qmd")), fixed = TRUE))) {
@@ -29,7 +38,7 @@ if (any(grepl("{{< meta prerelease-subdomain >}}", xfun::read_utf8(fs::path(quar
     list(
       "prerelease-subdomain" = ""
     ),
-    file = "_metadata.yml")
+    file = fs::path(quarto_web_demo_folder, "_metadata.yml"))
 }
 
 # get themes files
@@ -38,14 +47,32 @@ revealjs_themes <- purrr::map_chr(res, "name") |> fs::path_ext_remove() |> setdi
 xfun::write_utf8(revealjs_themes, "reveal-themes.txt")
 
 # check deps 
-lockfile <- renv::lockfile_create(
-  type = "implicit",
-  libpaths = .libPaths(),
-  prompt = FALSE,
-  force = FALSE,
-  project = quarto_web_demo_folder
-)
-renv::lockfile_write(lockfile, file = NULL, project = quarto_web_demo_folder)
-deps <- renv::dependencies(quarto_web_demo_folder)
-renv::install(unique(deps$Package), project = quarto_web_demo_folder)
+make_lockfile <- function(project) {
+  lockfile <- renv::lockfile_create(
+    type = "implicit",
+    libpaths = .libPaths(),
+    prompt = FALSE,
+    force = FALSE,
+    project = project
+  )
+  renv::lockfile_write(lockfile, file = NULL, project = project)
+  deps <- renv::dependencies(project)
+  renv::install(unique(deps$Package), project = project)
+  renv::snapshot(project = project)
+}
+make_lockfile(quarto_web_demo_folder)
 
+
+
+
+
+# Add callouts examples  -------------------------------------------------------
+
+quarto_callout_examples_folder <- "_revealjs-demo-template/quarto-callouts-themed"
+demo_path <- 'revealjs/callouts'
+update_demo_from_url(
+  url = "https://github.com/quarto-dev/quarto-examples/archive/refs/heads/main.zip",
+  demo_path = 'revealjs/callouts',
+  output_folder = quarto_callout_examples_folder
+)
+make_lockfile(quarto_callout_examples_folder)
