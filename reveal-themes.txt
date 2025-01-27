@@ -2,6 +2,7 @@ beige
 blood
 dark
 default
+dracula
 league
 moon
 night
