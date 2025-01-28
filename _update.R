@@ -63,9 +63,6 @@ make_lockfile <- function(project) {
 make_lockfile(quarto_web_demo_folder)
 
 
-
-
-
 # Add callouts examples  -------------------------------------------------------
 
 quarto_callout_examples_folder <- "_revealjs-demo-template/quarto-callouts-themed"
@@ -75,4 +72,9 @@ update_demo_from_url(
   demo_path = 'revealjs/callouts',
   output_folder = quarto_callout_examples_folder
 )
+# remove pdf file
+to_remove <- c("README.md", "README.qmd", "_publish.yml", "_quarto.yml")
+fs::file_delete(fs::path(quarto_callout_examples_folder, to_remove))
+fs::file_move(fs::path(quarto_callout_examples_folder, "default-styles.qmd"), fs::path(quarto_callout_examples_folder, "index.qmd"))
+
 make_lockfile(quarto_callout_examples_folder)
