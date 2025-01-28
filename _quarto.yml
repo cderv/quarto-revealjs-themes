@@ -5,106 +5,20 @@ project:
   - revealjs-themed-2/
   render:
   - index.qmd
+  - revealjs-callout.qmd
+  - revealjs-demo.qmd
 website:
   title: Revealjs Themed Presentation
   search: false
   navbar:
     background: primary
-    right:
+    left:
     - href: index.qmd
       text: Home
-    - text: Using quarto 1.6.4
-      menu:
-      - href: revealjs-themed/revealjs-beige/index.html
-        text: Using theme 'beige'.
-        target: _blank
-        icon: display
-      - href: revealjs-themed/revealjs-blood/index.html
-        text: Using theme 'blood'.
-        target: _blank
-        icon: display
-      - href: revealjs-themed/revealjs-dark/index.html
-        text: Using theme 'dark'.
-        target: _blank
-        icon: display
-      - href: revealjs-themed/revealjs-default/index.html
-        text: Using theme 'default'.
-        target: _blank
-        icon: display
-      - href: revealjs-themed/revealjs-league/index.html
-        text: Using theme 'league'.
-        target: _blank
-        icon: display
-      - href: revealjs-themed/revealjs-moon/index.html
-        text: Using theme 'moon'.
-        target: _blank
-        icon: display
-      - href: revealjs-themed/revealjs-night/index.html
-        text: Using theme 'night'.
-        target: _blank
-        icon: display
-      - href: revealjs-themed/revealjs-serif/index.html
-        text: Using theme 'serif'.
-        target: _blank
-        icon: display
-      - href: revealjs-themed/revealjs-simple/index.html
-        text: Using theme 'simple'.
-        target: _blank
-        icon: display
-      - href: revealjs-themed/revealjs-sky/index.html
-        text: Using theme 'sky'.
-        target: _blank
-        icon: display
-      - href: revealjs-themed/revealjs-solarized/index.html
-        text: Using theme 'solarized'.
-        target: _blank
-        icon: display
-    - text: Using quarto 99.9.9
-      menu:
-      - href: revealjs-themed-2/revealjs-beige/index.html
-        text: Using theme 'beige'.
-        target: _blank
-        icon: display
-      - href: revealjs-themed-2/revealjs-blood/index.html
-        text: Using theme 'blood'.
-        target: _blank
-        icon: display
-      - href: revealjs-themed-2/revealjs-dark/index.html
-        text: Using theme 'dark'.
-        target: _blank
-        icon: display
-      - href: revealjs-themed-2/revealjs-default/index.html
-        text: Using theme 'default'.
-        target: _blank
-        icon: display
-      - href: revealjs-themed-2/revealjs-league/index.html
-        text: Using theme 'league'.
-        target: _blank
-        icon: display
-      - href: revealjs-themed-2/revealjs-moon/index.html
-        text: Using theme 'moon'.
-        target: _blank
-        icon: display
-      - href: revealjs-themed-2/revealjs-night/index.html
-        text: Using theme 'night'.
-        target: _blank
-        icon: display
-      - href: revealjs-themed-2/revealjs-serif/index.html
-        text: Using theme 'serif'.
-        target: _blank
-        icon: display
-      - href: revealjs-themed-2/revealjs-simple/index.html
-        text: Using theme 'simple'.
-        target: _blank
-        icon: display
-      - href: revealjs-themed-2/revealjs-sky/index.html
-        text: Using theme 'sky'.
-        target: _blank
-        icon: display
-      - href: revealjs-themed-2/revealjs-solarized/index.html
-        text: Using theme 'solarized'.
-        target: _blank
-        icon: display
+    - text: Revealjs Demo Slides
+      href: revealjs-demo.qmd
+    - text: Callout in Revealjs
+      href: revealjs-callout.qmd
 format:
   html:
     theme: litera

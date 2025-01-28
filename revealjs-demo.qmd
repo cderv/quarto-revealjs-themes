@@ -1,0 +1,61 @@
+---
+title: Revealjs Demo Slides
+format:
+  html:
+    toc: true
+---
+
+```{css echo=FALSE}
+.slide-deck {
+  border: 3px solid #dee2e6;
+  width: 100%;
+  height: 475px;
+}
+
+@media only screen and (max-width: 600px) {
+ .slide-deck {
+    height: 400px;
+  }
+}
+
+.theme-example i.bi {
+    margin-left: .1rem;
+    margin-right: .25em;
+}
+```
+
+This page shows Revealjs demo slide (from <https://quarto.org/docs/presentations/revealjs/>) for all themes.
+
+## All themes variations
+
+```{r}
+#| echo: false
+#| output: asis
+main_output_path <- "revealjs-themed"
+files <- fs::dir_ls(main_output_path, recurse = TRUE, glob = "*revealjs-demo-*/index.html")
+theme <- files |> gsub(pattern = glue::glue("{main_output_path}/revealjs-demo-"), replacement = "", fixed = TRUE) |> fs::path_dir()
+files2 <- fs::path(glue::glue("{main_output_path}-2"), glue::glue("revealjs-demo-{theme}"), "index.html")
+stopifnot(
+  fs::dir_ls(glue::glue("{main_output_path}-2"), recurse = TRUE, glob = "*revealjs-demo-*/index.html") == files2
+)
+glue::glue("
+### Theme %%glue::single_quote(theme)%% {.theme-example}
+
+#### Using Quarto {{< var quarto_version_main >}}
+
+::: {.slide-container}
+`<iframe class='slide-deck' src=%%glue::double_quote(files)%% height=300px></iframe>`{=html}
+:::
+
+`<p><i class='bi bi-display' role='img'></i><a href=%%glue::double_quote(files)%% target='_blank'>View %%fs::path_file(fs::path_dir(files))%% in full screen</a></p>`{=html}
+
+#### Using Quarto {{< var quarto_version_other >}}
+
+::: {.slide-container}
+`<iframe class='slide-deck' src=%%glue::double_quote(files2)%% height=300px></iframe>`{=html}
+:::
+
+`<p><i class='bi bi-display' role='img'></i><a href=%%glue::double_quote(files2)%% target='_blank'>View %%fs::path_file(fs::path_dir(files2))%% in full screen</a></p>`{=html}
+
+", .open = "%%", .close = "%%")
+```
