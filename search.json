@@ -1,23 +1,51 @@
 [
   {
+    "objectID": "revealjs-demo.html",
+    "href": "revealjs-demo.html",
+    "title": "Revealjs Demo Slides",
+    "section": "",
+    "text": "This page shows Revealjs demo slide (from https://quarto.org/docs/presentations/revealjs/) for all themes."
+  },
+  {
+    "objectID": "revealjs-demo.html#all-themes-variations",
+    "href": "revealjs-demo.html#all-themes-variations",
+    "title": "Revealjs Demo Slides",
+    "section": "All themes variations",
+    "text": "All themes variations\n\nTheme ‘beige’\n\nUsing Quarto 1.7.13\n\n\n\nView revealjs-demo-beige in full screen\n\n\nUsing Quarto 99.9.9\n\n\n\nView revealjs-demo-beige in full screen\n\n\n\nTheme ‘blood’\n\nUsing Quarto 1.7.13\n\n\n\nView revealjs-demo-blood in full screen\n\n\nUsing Quarto 99.9.9\n\n\n\nView revealjs-demo-blood in full screen\n\n\n\nTheme ‘dark’\n\nUsing Quarto 1.7.13\n\n\n\nView revealjs-demo-dark in full screen\n\n\nUsing Quarto 99.9.9\n\n\n\nView revealjs-demo-dark in full screen\n\n\n\nTheme ‘default’\n\nUsing Quarto 1.7.13\n\n\n\nView revealjs-demo-default in full screen\n\n\nUsing Quarto 99.9.9\n\n\n\nView revealjs-demo-default in full screen\n\n\n\nTheme ‘dracula’\n\nUsing Quarto 1.7.13\n\n\n\nView revealjs-demo-dracula in full screen\n\n\nUsing Quarto 99.9.9\n\n\n\nView revealjs-demo-dracula in full screen\n\n\n\nTheme ‘league’\n\nUsing Quarto 1.7.13\n\n\n\nView revealjs-demo-league in full screen\n\n\nUsing Quarto 99.9.9\n\n\n\nView revealjs-demo-league in full screen\n\n\n\nTheme ‘moon’\n\nUsing Quarto 1.7.13\n\n\n\nView revealjs-demo-moon in full screen\n\n\nUsing Quarto 99.9.9\n\n\n\nView revealjs-demo-moon in full screen\n\n\n\nTheme ‘night’\n\nUsing Quarto 1.7.13\n\n\n\nView revealjs-demo-night in full screen\n\n\nUsing Quarto 99.9.9\n\n\n\nView revealjs-demo-night in full screen\n\n\n\nTheme ‘serif’\n\nUsing Quarto 1.7.13\n\n\n\nView revealjs-demo-serif in full screen\n\n\nUsing Quarto 99.9.9\n\n\n\nView revealjs-demo-serif in full screen\n\n\n\nTheme ‘simple’\n\nUsing Quarto 1.7.13\n\n\n\nView revealjs-demo-simple in full screen\n\n\nUsing Quarto 99.9.9\n\n\n\nView revealjs-demo-simple in full screen\n\n\n\nTheme ‘sky’\n\nUsing Quarto 1.7.13\n\n\n\nView revealjs-demo-sky in full screen\n\n\nUsing Quarto 99.9.9\n\n\n\nView revealjs-demo-sky in full screen\n\n\n\nTheme ‘solarized’\n\nUsing Quarto 1.7.13\n\n\n\nView revealjs-demo-solarized in full screen\n\n\nUsing Quarto 99.9.9\n\n\n\nView revealjs-demo-solarized in full screen"
+  },
+  {
     "objectID": "index.html",
     "href": "index.html",
     "title": "All Revealjs themes in one place !",
     "section": "",
-    "text": "This websites shows the demo presentation from https://quarto.org/docs/presentations/revealjs/ with an example for each available theme."
+    "text": "Discover what a theme looks like.\nEasier control when we update themes.\n\nNavigate the menu to see available examples\n\n\n\n\n\n\nQuarto versions used\n\n\n\nThis page was rendered using Quarto version 1.7.13, like one of each themed presentations. Other presentations where rendered using 99.9.9"
   },
   {
     "objectID": "index.html#why-this-website",
     "href": "index.html#why-this-website",
     "title": "All Revealjs themes in one place !",
-    "section": "Why this website ?",
-    "text": "Why this website ?\n\nDiscover what a theme looks like.\nEasier control when we update themes.\n\nNavigate the menu or scroll below\n\n\n\n\n\n\nQuarto version\n\n\n\nThis page was rendered using Quarto version 1.6.8, like one of each themed presentations. Other presentations where rendered using 99.9.9"
+    "section": "",
+    "text": "Discover what a theme looks like.\nEasier control when we update themes.\n\nNavigate the menu to see available examples\n\n\n\n\n\n\nQuarto versions used\n\n\n\nThis page was rendered using Quarto version 1.7.13, like one of each themed presentations. Other presentations where rendered using 99.9.9"
   },
   {
-    "objectID": "index.html#revealjs-themed-presentations",
-    "href": "index.html#revealjs-themed-presentations",
+    "objectID": "index.html#examples-available",
+    "href": "index.html#examples-available",
     "title": "All Revealjs themes in one place !",
-    "section": "Revealjs Themed presentations",
-    "text": "Revealjs Themed presentations\n\nTheme ‘beige’\n\nUsing Quarto 1.6.8\n\n\n\nView revealjs-beige in full screen\n\n\nUsing Quarto 99.9.9\n\n\n\nView revealjs-beige in full screen\n\n\n\nTheme ‘blood’\n\nUsing Quarto 1.6.8\n\n\n\nView revealjs-blood in full screen\n\n\nUsing Quarto 99.9.9\n\n\n\nView revealjs-blood in full screen\n\n\n\nTheme ‘dark’\n\nUsing Quarto 1.6.8\n\n\n\nView revealjs-dark in full screen\n\n\nUsing Quarto 99.9.9\n\n\n\nView revealjs-dark in full screen\n\n\n\nTheme ‘default’\n\nUsing Quarto 1.6.8\n\n\n\nView revealjs-default in full screen\n\n\nUsing Quarto 99.9.9\n\n\n\nView revealjs-default in full screen\n\n\n\nTheme ‘league’\n\nUsing Quarto 1.6.8\n\n\n\nView revealjs-league in full screen\n\n\nUsing Quarto 99.9.9\n\n\n\nView revealjs-league in full screen\n\n\n\nTheme ‘moon’\n\nUsing Quarto 1.6.8\n\n\n\nView revealjs-moon in full screen\n\n\nUsing Quarto 99.9.9\n\n\n\nView revealjs-moon in full screen\n\n\n\nTheme ‘night’\n\nUsing Quarto 1.6.8\n\n\n\nView revealjs-night in full screen\n\n\nUsing Quarto 99.9.9\n\n\n\nView revealjs-night in full screen\n\n\n\nTheme ‘serif’\n\nUsing Quarto 1.6.8\n\n\n\nView revealjs-serif in full screen\n\n\nUsing Quarto 99.9.9\n\n\n\nView revealjs-serif in full screen\n\n\n\nTheme ‘simple’\n\nUsing Quarto 1.6.8\n\n\n\nView revealjs-simple in full screen\n\n\nUsing Quarto 99.9.9\n\n\n\nView revealjs-simple in full screen\n\n\n\nTheme ‘sky’\n\nUsing Quarto 1.6.8\n\n\n\nView revealjs-sky in full screen\n\n\nUsing Quarto 99.9.9\n\n\n\nView revealjs-sky in full screen\n\n\n\nTheme ‘solarized’\n\nUsing Quarto 1.6.8\n\n\n\nView revealjs-solarized in full screen\n\n\nUsing Quarto 99.9.9\n\n\n\nView revealjs-solarized in full screen"
+    "section": "Examples available",
+    "text": "Examples available\n\nRevealjs Demo presentation\nCallouts in revealjs presentation"
+  },
+  {
+    "objectID": "revealjs-callout.html",
+    "href": "revealjs-callout.html",
+    "title": "Callouts in Revealjs",
+    "section": "",
+    "text": "This page shows callouts rendered in all Revealjs themes."
+  },
+  {
+    "objectID": "revealjs-callout.html#all-themes-variations",
+    "href": "revealjs-callout.html#all-themes-variations",
+    "title": "Callouts in Revealjs",
+    "section": "All themes variations",
+    "text": "All themes variations\n\nTheme ‘beige’\n\nUsing Quarto 1.7.13\n\n\n\nView revealjs-callout-beige in full screen\n\n\nUsing Quarto 99.9.9\n\n\n\nView revealjs-callout-beige in full screen\n\n\n\nTheme ‘blood’\n\nUsing Quarto 1.7.13\n\n\n\nView revealjs-callout-blood in full screen\n\n\nUsing Quarto 99.9.9\n\n\n\nView revealjs-callout-blood in full screen\n\n\n\nTheme ‘dark’\n\nUsing Quarto 1.7.13\n\n\n\nView revealjs-callout-dark in full screen\n\n\nUsing Quarto 99.9.9\n\n\n\nView revealjs-callout-dark in full screen\n\n\n\nTheme ‘default’\n\nUsing Quarto 1.7.13\n\n\n\nView revealjs-callout-default in full screen\n\n\nUsing Quarto 99.9.9\n\n\n\nView revealjs-callout-default in full screen\n\n\n\nTheme ‘dracula’\n\nUsing Quarto 1.7.13\n\n\n\nView revealjs-callout-dracula in full screen\n\n\nUsing Quarto 99.9.9\n\n\n\nView revealjs-callout-dracula in full screen\n\n\n\nTheme ‘league’\n\nUsing Quarto 1.7.13\n\n\n\nView revealjs-callout-league in full screen\n\n\nUsing Quarto 99.9.9\n\n\n\nView revealjs-callout-league in full screen\n\n\n\nTheme ‘moon’\n\nUsing Quarto 1.7.13\n\n\n\nView revealjs-callout-moon in full screen\n\n\nUsing Quarto 99.9.9\n\n\n\nView revealjs-callout-moon in full screen\n\n\n\nTheme ‘night’\n\nUsing Quarto 1.7.13\n\n\n\nView revealjs-callout-night in full screen\n\n\nUsing Quarto 99.9.9\n\n\n\nView revealjs-callout-night in full screen\n\n\n\nTheme ‘serif’\n\nUsing Quarto 1.7.13\n\n\n\nView revealjs-callout-serif in full screen\n\n\nUsing Quarto 99.9.9\n\n\n\nView revealjs-callout-serif in full screen\n\n\n\nTheme ‘simple’\n\nUsing Quarto 1.7.13\n\n\n\nView revealjs-callout-simple in full screen\n\n\nUsing Quarto 99.9.9\n\n\n\nView revealjs-callout-simple in full screen\n\n\n\nTheme ‘sky’\n\nUsing Quarto 1.7.13\n\n\n\nView revealjs-callout-sky in full screen\n\n\nUsing Quarto 99.9.9\n\n\n\nView revealjs-callout-sky in full screen\n\n\n\nTheme ‘solarized’\n\nUsing Quarto 1.7.13\n\n\n\nView revealjs-callout-solarized in full screen\n\n\nUsing Quarto 99.9.9\n\n\n\nView revealjs-callout-solarized in full screen"
   }
 ]
