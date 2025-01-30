@@ -143,7 +143,7 @@ Quarto versions used
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>This page was rendered using Quarto version 1.7.13, like one of each themed presentations. Other presentations where rendered using 99.9.9 e2690e57a7f64d0a0799d09a1001db8df43949da</p>
+<p>This page was rendered using Quarto version 1.7.13, like one of each themed presentations. Other presentations where rendered using 99.9.9 3a9a4947f0df5b92d6c56f172694dd65d9cccd63</p>
 </div>
 </div>
 </section>
@@ -248,7 +248,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
     var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
     var mailtoRegex = new RegExp(/^mailto:/);
-      var filterRegex = new RegExp("https:\/\/cderv\.github\.io\/quarto-revealjs-themes\/");
+      var filterRegex = new RegExp('/' + window.location.host + '/');
     var isInternal = (href) => {
         return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
     }
